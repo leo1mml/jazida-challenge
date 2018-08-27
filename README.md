@@ -4,13 +4,13 @@ Este projeto foi feito com o intuito de provar conhecimentos usando ReactJS.
 
 ## Objetivo
 
-# Jogo da Velha
+### Jogo da Velha
 Você é desafiado a implementar uma versão 100% funcional do famoso jogo da velha.
 2 jogadores humanos jogando na mesma janela do navegador
 Antes de começar, cada jogador informa o seu nome
 Jogadores trocam a cada turno
 Ao terminar o jogo, o vencedor (ou empate) é mostrado em um placar
-# Requisitos
+### Requisitos
 Para completar o desafio:
 Utilize git para versionamento
 Considere o Google Chrome como navegador de testes
