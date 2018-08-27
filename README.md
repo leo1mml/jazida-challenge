@@ -15,7 +15,7 @@ Jogadores trocam a cada turno
 
 Ao terminar o jogo, o vencedor (ou empate) é mostrado em um placar
 
-### Requisitos
+## Requisitos
 Para completar o desafio:
 
 Utilize git para versionamento
