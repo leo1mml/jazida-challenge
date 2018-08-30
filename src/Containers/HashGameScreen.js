@@ -1,4 +1,7 @@
-import React from 'react'
+import React from 'react';
+import { connect } from 'react-redux';
+import {updateScore} from '../Actions/Players'
+
 
 class HashGameScreen extends React.Component {
 
@@ -18,6 +21,7 @@ class HashGameScreen extends React.Component {
         if(this.gameState.board[box.dataset.square] === '') {
             this.gameState.board[box.dataset.square] = this.gameState.turn
             box.innerText = this.gameState.turn
+            box.style.color = this.gameState.turn === 'X' ? "#F22C1B" : "#02293B"
             
             this.gameState.turn = this.gameState.turn === 'X' ? 'O' : 'X'
             
@@ -32,18 +36,21 @@ class HashGameScreen extends React.Component {
             winner: 'X',
             winnerLine: 'Match won by X'
             }));
+            this.props.winGame(true, false, false)
         } else if(result === 'O') {
             this.gameState.gameEnded = true;
             this.setState(() => ({
             winner: 'O',
             winnerLine: 'Match won by O'
             }));
+            this.props.winGame(false, true, false)
         } else if(result === 'draw') {
             this.gameState.gameEnded = true;
             this.setState(() => ({
                 winner: 'draw',
                 winnerLine: 'Match is drawn'
             }))
+            this.props.winGame(true, false, true)
         }
 
     }
@@ -84,4 +91,9 @@ class HashGameScreen extends React.Component {
         )
     }
 }
-export default HashGameScreen;
+
+const mapDispatchToProps = (dispatch, props) => ({
+    winGame: (player1win, player2win, draw) => dispatch(updateScore(player1win, player2win, draw))
+})
+
+export default connect(undefined, mapDispatchToProps)(HashGameScreen);
