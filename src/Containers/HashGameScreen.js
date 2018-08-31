@@ -90,7 +90,7 @@ class HashGameScreen extends React.Component {
             <div id="game">
                 <div id="status">Jazida</div>
                 <div id="head">
-                    {!this.gameState.gameEnded ? 
+                    {!this.state.gameEnded ? 
                         `É a vez de ${this.state.turn === 'X'? this.props.player1.name : this.props.player2.name}`
                         :
                         "GAME OVER"
