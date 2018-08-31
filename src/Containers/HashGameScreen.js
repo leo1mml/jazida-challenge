@@ -8,16 +8,20 @@ class HashGameScreen extends React.Component {
 
     state = {
         winner: undefined,
-        turn: 'X'
+        turn: 'X',
+        gameEnded: false,
     }
     gameState = {
-        gameEnded: false,
         board: Array(9).fill(''),
         totalMoves: 0
     }
 
+    componentDidMount(){
+        console.log(this.props);
+    }
+
     clicked(box) {
-        if(this.gameState.gameEnded) return
+        if(this.state.gameEnded) return
 
         if(this.gameState.board[box.dataset.square] === '') {
             this.gameState.board[box.dataset.square] = this.state.turn
@@ -32,23 +36,28 @@ class HashGameScreen extends React.Component {
         var result = this.checkWinner();
 
         if(result){
-            this.gameState.gameEnded = true;
+            let winner = undefined
             switch (result) {
                 case 'X':
-                    this.setState(() => ({winner: this.props.player1.name}))
+                    winner = this.props.player1.name
                     this.props.winGame(true, false, false)
                 break;
                 case 'O':
-                    this.setState(() => ({winner: this.props.player2.name}))
+                    winner = this.props.player2.name
                     this.props.winGame(false, true, false)
                 break;
                 case 'draw':
-                    this.setState(() => ({winner: 'Draw'}))
-                    this.props.winGame(true, false, true)
+                    this.props.winGame(false, false, true)
                 break;
                 default:
                     break;
             }
+
+            console.log("passei");
+            this.setState(() => ({
+                gameEnded: true,
+                winner
+            }))
         }
     }
 
@@ -66,9 +75,12 @@ class HashGameScreen extends React.Component {
     }
 
     handleClearModal = () => {
-        this.setState(() => ({winner: undefined}))
         this.gameState.board = Array(9).fill('')
-        this.gameState.gameEnded = false
+        this.gameState.totalMoves = 0
+        this.setState(() => ({
+            gameEnded: false,
+            winner: undefined
+        }))
         Array.from(document.getElementsByClassName("square"), elem => elem.innerText="")
     }
     
@@ -97,9 +109,11 @@ class HashGameScreen extends React.Component {
                     <div className="square" data-square="8"></div>
                 </div>
                 <EndGameModal 
+                    shouldShow={this.state.gameEnded}
                     winner={this.state.winner}
                     player1={this.props.player1}
                     player2={this.props.player2}
+                    draws={this.props.draws}
                     handleClearModal={this.handleClearModal}
                 ></EndGameModal>
             </div>
@@ -113,7 +127,8 @@ const mapDispatchToProps = (dispatch, props) => ({
 
 const mapStateToProps = (state, props) => ({
     player1: state.players.player1,
-    player2: state.players.player2
+    player2: state.players.player2,
+    draws: state.players.draws
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(HashGameScreen);

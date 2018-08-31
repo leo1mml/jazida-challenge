@@ -45,7 +45,8 @@ button:disabled {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  background-color: #21656B; }
+  background-color: #21656B;
+  margin-top: 4.8rem; }
 
 #head {
   font-size: 25px;
