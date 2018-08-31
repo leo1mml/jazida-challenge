@@ -1,0 +1,45 @@
+.assign-screen{
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    height: 50%;
+    position: relative;
+    margin-top: 12.5%;
+}
+
+.welcome-title{
+    font-family: badassFont;
+    text-align: center;
+}
+
+.assign-screen form {
+    display: flex;
+    flex-direction: column;
+    width: 250px;
+    align-self: center;
+    text-align: center;
+}
+
+.assign-screen form input {
+    background-color: darken($bg-color, 20%);
+    border: none;
+    border-radius: 5px;
+    margin-top: $s-size;
+    flex-basis: 50px;
+    box-sizing: border-box;
+    padding: 0 20px;
+    color: $detail-color;
+    text-align: center;
+}
+
+.assign-screen form label {
+    margin-top: $l-size;
+}
+
+.assign-screen form input[type=submit]{
+    background-color: lighten($bg-color, 20%);
+    width: 50%;
+    align-self: center;
+    font-family: badassFont;
+}

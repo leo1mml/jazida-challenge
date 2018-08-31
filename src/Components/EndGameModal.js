@@ -15,7 +15,7 @@ const EndGameModal = (props) => (
         <h4>Placar</h4>
         <h5>{props.player1.name}: {props.player1.wins} | {props.player2.name}: {props.player2.wins}</h5>
         <h5>Empates: {props.draws}</h5>
-        <button className="play-again-btn" onClick={props.handleClearModal}>Revanche</button>
+        <button className="play-again-btn" onClick={props.handleClearModal}>REVANCHE</button>
     </Modal>
 )
 

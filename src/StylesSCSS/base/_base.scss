@@ -1,11 +1,22 @@
+@font-face {
+    font-family: badassFont;
+    src: url('Fonts/Slash.ttf');
+}
+
+@font-face {
+    font-family: ProximaNova;
+    src: url('Fonts/proxima-nova.otf');
+}
+
 html{
     font-size: 62.5%;
     background-color: #21656B;
 }
 
 body{
-    font-family: Helvetica, Arial, sans-serif;
+    font-family: ProximaNova, Arial, sans-serif;
     font-size: $m-size;
+    color: white;
 }
 
 button{

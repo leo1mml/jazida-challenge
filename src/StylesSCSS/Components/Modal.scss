@@ -18,8 +18,8 @@
 } 
 
 .modal {
-    background: white;
-    color: black;
+    background: $bg-color;
+    color: white;
     max-width: 30rem;
     outline: none;
     padding: $l-size;
@@ -35,4 +35,13 @@
     font-weight: 300;
     margin: 0 0 $l-size 0;
     word-break: break-all;
+}
+
+.play-again-btn{
+    font-family: badassFont;
+    color: #F22C1B;
+    margin-top: 20px;
+    background-color: $detail-color;
+    padding: 5px;
+    border-radius: 7px;
 }
