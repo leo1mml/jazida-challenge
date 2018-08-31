@@ -1,22 +1,30 @@
+html {
+  font-size: 62.5%;
+  background-color: #21656B; }
+
+body {
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 1.6rem; }
+
+button {
+  cursor: pointer; }
+
+button:disabled {
+  cursor: default; }
+
 .App {
-  text-align: center;
-}
+  text-align: center; }
+
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
-}
-
-html{
-  background-color: #21656B;
-}
+  box-sizing: border-box; }
 
 #board {
   display: flex;
   width: 300px;
   flex-wrap: wrap;
-  margin-top: 100px;
-}
+  margin-top: 100px; }
 
 .square {
   width: 100px;
@@ -27,38 +35,64 @@ html{
   font-size: 45px;
   align-items: center;
   cursor: pointer;
-  user-select: none;
-}
+  user-select: none; }
 
 .square:hover {
-  background: #164549;
-}
+  background: #1b5358; }
 
 #game {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  background-color: #21656B;
-}
+  background-color: #21656B; }
 
 #head {
   font-size: 25px;
-  padding: 15px;
-}
+  padding: 15px; }
 
 .square:nth-child(7), .square:nth-child(8), .square:nth-child(9) {
-    border-bottom: 0;
-}
+  border-bottom: 0; }
 
 .square:nth-child(1), .square:nth-child(2), .square:nth-child(3) {
-    border-top: 0;
-}
+  border-top: 0; }
 
 .square:nth-child(3n+1) {
-    border-left: 0;
-}
+  border-left: 0; }
 
 .square:nth-child(3n) {
-    border-right: 0;
-}
+  border-right: 0; }
+
+.ReactModalPortal > div {
+  opacity: 0; }
+
+.ReactModalPortal .ReactModal__Overlay {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 200ms ease-in-out; }
+
+.ReactModalPortal .ReactModal__Overlay--after-open {
+  opacity: 1; }
+
+.ReactModalPortal .ReactModal__Overlay--before-close {
+  opacity: 0; }
+
+.modal {
+  background: white;
+  color: black;
+  max-width: 30rem;
+  outline: none;
+  padding: 3.2rem;
+  text-align: center; }
+
+.modal__title {
+  margin: 0 0 1.6rem 0; }
+
+.modal__body {
+  font-size: 2rem;
+  font-weight: 300;
+  margin: 0 0 3.2rem 0;
+  word-break: break-all; }
+
+/*# sourceMappingURL=App.css.map */
